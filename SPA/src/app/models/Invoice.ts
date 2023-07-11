@@ -1,6 +1,8 @@
 export interface IInvoiceList {
     id: number;
-
+    date: Date;
+    status: number;
+    amount: number;
 }
 
 
