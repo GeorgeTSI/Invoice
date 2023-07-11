@@ -35,6 +35,5 @@ namespace InvoicesAPI.Controllers
             return Ok(_repo.UpdateInvoice(model));
         }
 
-
     }
 }

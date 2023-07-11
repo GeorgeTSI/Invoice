@@ -5,7 +5,6 @@ export interface IInvoiceList {
     amount: number;
 }
 
-
 export interface InvoiceUpdate {
     Id: number;
     Amount: number;

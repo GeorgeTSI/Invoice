@@ -9,7 +9,7 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'InvoiceSPA';
+  title = 'Invoice - SPA';
 
   public enableEdit: boolean = true;
 
