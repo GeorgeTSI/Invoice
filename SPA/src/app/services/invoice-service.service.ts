@@ -15,11 +15,11 @@ export class InvoiceServiceService {
     return this.http.get<IInvoiceList[]>(this.apiUrl + '/getInvoices')
   }
 
-  public updateDetails(data: any){
-    return this.http.post<InvoiceUpdate>(this.apiUrl + "/updateInvoice", data);
+  public updateDetails(json: InvoiceUpdate){
+    return this.http.post<IInvoiceList[]>(this.apiUrl + "/updateInvoice", json);
   }
 
-  public addInvocie(data: any){
-    return this.http.post<IInvoiceList[]>(this.apiUrl + "/addInvoice", data);
+  public addInvocie(json: any){
+    return this.http.post<IInvoiceList[]>(this.apiUrl + "/addInvoice", json);
   }
 }
