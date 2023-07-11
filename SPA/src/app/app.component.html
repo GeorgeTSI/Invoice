@@ -1,5 +1,44 @@
-
-<button class="btn btn-success"> Click me </button>
-<div class="mt-4 pt-2">
-  <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
+<div class="container-fluid mb-5">
+    <div class="row m-0 table-responsive panel">
+    <table class="table gr table-bordered table-hover table-condensed table-striped">
+        <thead class="panel-head">
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Amount</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody class="panel-body" >
+            <tr>
+                <td>
+                    1              
+                </td>
+                <td>
+                    223
+                </td>
+                <td>
+                    <div>{{'05/05/2023'| date: 'dd/MM/yyyy'}}</div>
+                </td>
+                <td>
+                    22.50
+                </td>
+                <td>       
+                    <button *ngIf="enableEdit"  (click)="enableEdit=false" class="btn btn-sm bg-danger" tooltip="X">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <button *ngIf="enableEdit" class="btn btn-sm bg-success" style="margin: 1px;" tooltip="save"> 
+                        <i class="fas fa-check"></i>
+                    </button>
+                    <button *ngIf="!enableEdit" (click)="enableEdit=true" class="btn btn-sm gr-btn warn"  placement="left" tooltip="edit"> 
+                        <i class="fas fa-edit fa-2x"></i>
+                    </button>                                
+                </td> 
+            </tr>
+            
+           
+        </tbody>
+    </table>
+    </div>
 </div>
