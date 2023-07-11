@@ -11,15 +11,15 @@ export class InvoiceServiceService {
 
   constructor(private http: HttpClient) { }
 
-  public getInvoiceList(){
+  getInvoiceList() {
     return this.http.get<IInvoiceList[]>(this.apiUrl + '/getInvoices')
   }
 
-  public updateDetails(json: InvoiceUpdate){
+  updateDetails(json: InvoiceUpdate) {
     return this.http.post<IInvoiceList[]>(this.apiUrl + "/updateInvoice", json);
   }
 
-  public addInvocie(json: any){
+  addInvocie(json: any) {
     return this.http.post<IInvoiceList[]>(this.apiUrl + "/addInvoice", json);
   }
 }

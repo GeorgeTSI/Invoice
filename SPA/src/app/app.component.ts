@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IInvoiceList, InvoiceUpdate } from './models/Invoice';
 import { InvoiceServiceService } from './services/invoice-service.service';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -10,14 +11,15 @@ import { InvoiceServiceService } from './services/invoice-service.service';
 export class AppComponent implements OnInit {
   title = 'InvoiceSPA';
 
-  public enableEdit: boolean = false;
+  public enableEdit: boolean = true;
 
   public invoiceList: IInvoiceList[] = [];
+  public listForm!: FormGroup;
 
-  constructor (private service: InvoiceServiceService){}
+  constructor (private service: InvoiceServiceService, private fb: FormBuilder){}
 
   public ngOnInit(): void {
-    
+    this.createListForm();
   }
 
   public getInvoices() {
@@ -32,8 +34,8 @@ export class AppComponent implements OnInit {
   public updateInvoice(){
     let json: InvoiceUpdate = 
     {
-       Id: 1,
-      Amount: 2
+       Id: this.listForm.value.id,
+      Amount: this.listForm.value.amount
     };
 
     this.service.updateDetails(json).subscribe( data => {
@@ -59,5 +61,14 @@ export class AppComponent implements OnInit {
     error => {
       alert('add error');
     });
+  }
+
+  private createListForm(){
+    this.listForm = this.fb.group({
+      id: new FormControl(),
+      status: new FormControl(),
+      date: new FormControl(),
+      amount: new FormControl(),
+    })
   }
 }

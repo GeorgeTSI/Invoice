@@ -10,20 +10,31 @@
                 <th>Edit</th>
             </tr>
         </thead>
-        <tbody class="panel-body" >
-            <tr>
+        <tbody class="panel-body" [formGroup]="listForm">
+            <tr *ngFor="let item of invoiceList">
                 <td>
-                    1              
+                   {{ item.id }}     
                 </td>
                 <td>
-                    223
+                    <div>{{ item.date | date: 'dd/MM/yyyy'}}</div>
                 </td>
                 <td>
-                    <div>{{'05/05/2023'| date: 'dd/MM/yyyy'}}</div>
+                    {{ item.status }}
                 </td>
-                <td>
-                    22.50
+
+                <td title= "{{ item.amount }}">
+                    <ng-container *ngIf="enableEdit">                                      
+                        <div class="input-group">
+                            <input type="text" class="form-control gr-input validate" 
+                                >
+                        </div>
+                    </ng-container>
+                    <ng-template #amount>
+                        {{ item.amount  }}
+                       
+                    </ng-template>
                 </td>
+
                 <td>       
                     <button *ngIf="enableEdit"  (click)="enableEdit=false" class="btn btn-sm bg-danger" tooltip="X">
                         <i class="fas fa-times"></i>
