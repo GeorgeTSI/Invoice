@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   constructor (private service: InvoiceServiceService, private fb: FormBuilder){}
 
   public ngOnInit(): void {
-    this.createListForm();
+    this.createListForm(); 
   }
 
   public getInvoices() {
